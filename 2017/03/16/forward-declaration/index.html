@@ -29,7 +29,7 @@ google c++ 风格指南中定义：
 
 使用原则：
 头文件中尽量可不或重复包含头文">
-<meta property="og:updated_time" content="2017-03-16T00:43:37.000Z">
+<meta property="og:updated_time" content="2017-03-16T00:47:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前置声明的总结">
 <meta name="twitter:description" content="昨天遇到代码单侧时候无法编译的问题。定位到是出现互相包含，导致出现未声明的错误；解决的办法显然使用绿前置声明，并去掉头部中互包含头文件，仅在cpp中包含（在实现部分）。
@@ -85,7 +85,7 @@ google c++ 风格指南中定义：
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://zivee.cn"></form>
@@ -136,15 +136,15 @@ google c++ 风格指南中定义：
 <li>降低类模块之间的耦合，减少依赖；避免不必要的重新编译。</li>
 </ol>
 <p><em>注意：不必只是为了避免使用#include，而用指针成员替代对象成员。选择使用前置声明时注意隐式包拷贝构造函数的调用。</em></p>
-<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不同名字空间的前置声明方式  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span>  </span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> test1  </div><div class="line">&#123;  </div><div class="line">    <span class="keyword">class</span> C;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> test2  </div><div class="line">&#123;     </div><div class="line">       <span class="comment">//用using避免使用完全限定名  </span></div><div class="line"><span class="keyword">using</span> test1::C;  </div><div class="line"></div><div class="line"><span class="keyword">class</span> A   </div><div class="line">&#123;  </div><div class="line"><span class="keyword">public</span>:  </div><div class="line">    <span class="function">C   <span class="title">useC</span><span class="params">(C)</span></span>;  </div><div class="line">    <span class="function">C&amp; <span class="title">doToC</span><span class="params">(C&amp;)</span></span>;  </div><div class="line">    <span class="function">C&amp; <span class="title">doToC2</span><span class="params">(C&amp; c)</span> </span>&#123;<span class="keyword">return</span> doToC(c);&#125;;  </div><div class="line"></div><div class="line"><span class="keyword">private</span>:  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">list</span>&lt;C&gt;    _list;  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;C&gt;  _vector;  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">map</span>&lt;C, C&gt;  _map;  </div><div class="line">    C*              _pc;  </div><div class="line">    C&amp;              _rc;  </div><div class="line"></div><div class="line">&#125;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//不同名字空间的前置声明方式  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span>  </span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span>  </span></div><div class="line"></div><div class="line"><span class="keyword">namespace</span> test1  </div><div class="line">&#123;  </div><div class="line"><span class="keyword">class</span> C;</div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="keyword">namespace</span> test2  </div><div class="line">&#123;     </div><div class="line"><span class="keyword">using</span> test1::C;  </div><div class="line"></div><div class="line"><span class="keyword">class</span> A   </div><div class="line">&#123;  </div><div class="line"><span class="keyword">public</span>:  </div><div class="line">    <span class="function">C   <span class="title">useC</span><span class="params">(C)</span></span>;  </div><div class="line">    <span class="function">C&amp; <span class="title">doToC</span><span class="params">(C&amp;)</span></span>;  </div><div class="line">    <span class="function">C&amp; <span class="title">doToC2</span><span class="params">(C&amp; c)</span> </span>&#123;<span class="keyword">return</span> doToC(c);&#125;;  </div><div class="line"></div><div class="line"><span class="keyword">private</span>:  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">list</span>&lt;C&gt;    _list;  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;C&gt;  _vector;  </div><div class="line">    <span class="built_in">std</span>::<span class="built_in">map</span>&lt;C, C&gt;  _map;  </div><div class="line">    C*              _pc;  </div><div class="line">    C&amp;              _rc;  </div><div class="line">&#125;  </div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>参考：</p>
 <hr>
-<p><a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations" target="_blank" rel="external">http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations</a></p>
+<p><a href="http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations" target="_blank" rel="external">http://zh-google-styleguide.readthedocs.io/en/latest/google-cpp-styleguide/headers/#forward-declarations</a><br><a href="http://blog.csdn.net/emsoften/article/details/50374232" target="_blank" rel="external">http://blog.csdn.net/emsoften/article/details/50374232</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://zivee.cn/2017/03/16/forward-declaration/" data-id="cj0boa85b0000is34vy3fb7ml" class="article-share-link">Delen</a>
+      <a data-url="http://zivee.cn/2017/03/16/forward-declaration/" data-id="cj0boa85b0000is34vy3fb7ml" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/skill/">skill</a></li></ul>
@@ -157,7 +157,7 @@ google c++ 风格指南中定义：
   
   
     <a href="/2017/03/03/Hello-hexo/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">2017年书单</div>
     </a>
   
@@ -175,7 +175,7 @@ google c++ 风格指南中定义：
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Labels</h3>
+    <h3 class="widget-title">Tags</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/2017/">2017</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Books/">Books</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/c-c/">c/c++</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a></li></ul>
     </div>
@@ -194,7 +194,7 @@ google c++ 风格指南中定义：
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
     </div>
@@ -204,7 +204,7 @@ google c++ 风格指南中定义：
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
         
