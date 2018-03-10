@@ -1,7 +1,56 @@
 ---
-title: Hello World
+title: Hexo搭建博客笔记
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+## Install Hexo
+
+### node.js安装
+```bash
+$ curl https://raw.github.com/creationix/nvm/master/install.sh | sh
+$ nvm install stable
+```
+Windows 用户下载 [安装程序](http://nodejs.org/) 来安装
+
+### hexo客户端安装
+ cnpm (gzip 压缩支持) 命令行工具代替默认的 npm,使用[淘宝 NPM 镜像](https://npm.taobao.org/)
+
+```bash
+$ npm install -g cnpm --registry=https://registry.npm.taobao.org
+$ cnpm install -g hexo-cli
+```
+
+### 初始化建站
+
+``` bash
+$ hexo init <folder>
+```
+或者使用备份且用分支 _sources_
+``` bash
+git clone git@github.com:xxx/<folder>.git
+git checkout sources
+```
+
+``` bash
+$ cd <folder>
+$ cnpm install
+$ cnpm install hexo-deployer-git --save
+```
+
+注意： 如需要上传特殊文件到站点根目录如CNAME 或 favicon.ico等文件可预先放入到source目录，备份时应包含以下文件和文件夹；
+```
+.
+├── _config.yml
+├── package.json
+├── .gitignore
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+```
+
+github搭建hexo站点参考  http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/
+
+ Check [documentation](https://hexo.io/zh-cn/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/zh-cn/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
 
@@ -11,7 +60,7 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 $ hexo new "My New Post"
 ```
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+More info: [Writing](https://hexo.io/zh-cn/docs/writing.html)
 
 ### Run server
 
@@ -19,7 +68,7 @@ More info: [Writing](https://hexo.io/docs/writing.html)
 $ hexo server
 ```
 
-More info: [Server](https://hexo.io/docs/server.html)
+More info: [Server](https://hexo.io/zh-cn/docs/server.html)
 
 ### Generate static files
 
@@ -27,7 +76,7 @@ More info: [Server](https://hexo.io/docs/server.html)
 $ hexo generate
 ```
 
-More info: [Generating](https://hexo.io/docs/generating.html)
+More info: [Generating](https://hexo.io/zh-cn/docs/generating.html)
 
 ### Deploy to remote sites
 
@@ -35,4 +84,4 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 $ hexo deploy
 ```
 
-More info: [Deployment](https://hexo.io/docs/deployment.html)
+More info: [Deployment](https://hexo.io/zh-cn/docs/deployment.html)
