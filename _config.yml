@@ -72,7 +72,8 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+#theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -80,3 +81,22 @@ deploy:
   type: git
   repo: git@github.com:zivee/notebook.git
   branch: master
+
+# hexo-math (dependencies: hexo-inject)
+#math:
+#  engine: mathjax
+#  mathjax:
+#    src: //cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+#    config:
+#      tex2jax:
+#        inlineMath:
+#        - [$, $]
+#        - [\(, \)]
+#        skipTags: [script, noscript, style, textarea, pre, code]
+#        processEscapes: true
+#      TeX:
+#        equationNumbers: {autoNumber: AMS}
+#  katex:
+#    css: //cdn.bootcss.com/KaTeX/0.9.0/katex.min.css
+#    js: //cdn.bootcss.com/KaTeX/0.9.0/katex.min.js
+#    config: {throwOnError: false, errorColor: '#cc0000'}
