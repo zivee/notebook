@@ -1,5 +1,6 @@
 ---
 title: Hexo搭建博客笔记
+tags: Hexo
 ---
 ## Install Hexo
 
@@ -32,7 +33,6 @@ git checkout sources
 ``` bash
 $ cd <folder>
 $ cnpm install
-$ cnpm install hexo-deployer-git --save
 ```
 
 注意： 如需要上传特殊文件到站点根目录如CNAME 或 favicon.ico等文件可预先放入到source目录，备份时应包含以下文件和文件夹；
