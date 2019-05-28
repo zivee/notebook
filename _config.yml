@@ -5,14 +5,14 @@
 # Site
 title: 阿辉笔记
 subtitle: zivee.cn
-description: 记录日常技术成长，编程语言、分布式技术和算法等等。
+description: 笔记，杂言，记性不好
 author: 辉
 language: zh_CN
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://zivee.cn
+url: https://zivee.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
