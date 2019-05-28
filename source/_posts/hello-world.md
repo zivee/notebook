@@ -1,5 +1,6 @@
 ---
-title: Hexo搭建博客笔记
+title: Hexo搭建博客
+updated: 2019-05-28 03:10:04
 tags: Hexo
 ---
 ## Install Hexo
@@ -24,7 +25,7 @@ $ cnpm install -g hexo-cli
 ``` bash
 $ hexo init <folder>
 ```
-或者使用备份且用分支 _sources_
+或者使用备份，当前用GitHub举例master为站点静态数据，源码备份在分支 _sources_
 ``` bash
 git clone git@github.com:xxx/<folder>.git
 git checkout sources
@@ -35,7 +36,7 @@ $ cd <folder>
 $ cnpm install
 ```
 
-注意： 如需要上传特殊文件到站点根目录如CNAME 或 favicon.ico等文件可预先放入到source目录，备份时应包含以下文件和文件夹；
+注意： 如需要上传特殊文件到站点根目录如*CNAME* 或 *favicon.ico*等文件可预先放入到**source**目录，备份时应包含以下文件和文件夹；
 ```
 .
 ├── _config.yml
