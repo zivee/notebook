@@ -1,5 +1,6 @@
 ---
 title: Hexo搭建博客
+date: 2019-05-28 03:10:04
 updated: 2019-05-28 03:10:04
 tags: Hexo
 ---
