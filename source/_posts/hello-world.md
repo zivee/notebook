@@ -50,9 +50,9 @@ $ cnpm install
 └── themes
 ```
 
-github搭建hexo站点参考  http://barrysite.me/2017/05/07/Github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/
-
- Check [documentation](https://hexo.io/zh-cn/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/zh-cn/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+github搭建hexo站点参考
+[手册](https://hexo.io/zh-cn/docs/generating)
+Check [documentation](https://hexo.io/zh-cn/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/zh-cn/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 ## Quick Start
 
