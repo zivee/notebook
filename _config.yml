@@ -5,10 +5,10 @@
 # Site
 title: 阿辉笔记
 subtitle: zivee.cn
-description: 笔记，杂言，记性不好
+description: blog，杂言，coding
 keywords:
 author: 辉
-language: en
+language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
