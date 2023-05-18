@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 阿辉笔记
+title: 阿辉的网络日志
 subtitle: zivee.cn
-description: blog，杂言，coding
+description: blog，杂言，coding,科技
 keywords:
-author: 辉
+author: 阿辉
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: http://zivee.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -98,8 +98,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: landscape
-theme: next
+theme: landscape
+#theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
