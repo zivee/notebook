@@ -5,15 +5,17 @@ LABEL maintainer="zivee <xu@zivee.cn>"
 ARG SUID=501
 
 WORKDIR /tmp
-ENV HEXO_SERVER_PORT=8080
 COPY docker-entrypoint.sh /
-RUN apk add --update --no-cache git openssh \
+RUN set -x \
+    && apk add --update --no-cache git openssh \
     && npm install -g cnpm --registry=https://registry.npmmirror.com && cnpm install -g hexo-cli \
     && addgroup -g $SUID hexor \
     && adduser -D -u $SUID -G hexor hexor \
     && chmod +x /docker-entrypoint.sh
 
-EXPOSE 8080
 USER hexor
+EXPOSE 4000
+VOLUME [ "/app", "/home/hexor/.ssh/id_rsa" ]
+WORKDIR /app
 ENTRYPOINT ["/docker-entrypoint.sh"]
-CMD ["hexo" "server" "-s" "-p" "${HEXO_SERVER_PORT}"]
+CMD ["hexo", "server", "-s"]
